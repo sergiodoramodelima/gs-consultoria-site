@@ -1,9 +1,1216 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>GS Consultoria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GS Consultoria | Saúde e Segurança do Trabalho</title>
+
+    <meta name="description" content="GS Consultoria em Saúde e Segurança do Trabalho LTDA. Soluções em SST, PGR, GRO, LTCAT, laudos, avaliações, treinamentos e assessoria técnica na Região Metropolitana do Rio de Janeiro.">
+
+    <style>
+        :root {
+            --verde: #176b45;
+            --verde-escuro: #0d4b31;
+            --verde-claro: #eaf5ef;
+            --verde-medio: #2c8a5c;
+            --branco: #ffffff;
+            --cinza: #f5f7f6;
+            --texto: #24352d;
+            --texto-claro: #617068;
+            --borda: #dce8e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--texto);
+            background: var(--branco);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--verde-escuro);
+        }
+
+        .logo img {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        .logo-fallback {
+            width: 62px;
+            height: 62px;
+            border-radius: 10px;
+            background: var(--verde);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 19px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            display: block;
+            color: var(--verde);
+            font-size: 9px;
+            letter-spacing: 0.7px;
+            margin-top: 5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--verde-escuro);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--verde-medio);
+        }
+
+        .nav-button {
+            background: var(--verde);
+            color: white !important;
+            padding: 11px 18px;
+            border-radius: 7px;
+        }
+
+        .nav-button:hover {
+            background: var(--verde-escuro);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background:
+                linear-gradient(90deg, rgba(9, 61, 39, 0.96), rgba(23, 107, 69, 0.80)),
+                url("img/hero.jpg") center/cover no-repeat;
+
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 80px 0;
+        }
+
+        .tag {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #bce7cf;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.08;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #b9e8ca;
+        }
+
+        .hero p {
+            max-width: 720px;
+            font-size: 19px;
+            color: #edf8f1;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 7px;
+            font-weight: 800;
+            transition: 0.25s;
+        }
+
+        .button-green {
+            background: #ffffff;
+            color: var(--verde-escuro);
+        }
+
+        .button-green:hover {
+            transform: translateY(-2px);
+            background: #e8f5ed;
+        }
+
+        .button-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: var(--verde-escuro);
+        }
+
+        /* ================= DESTAQUES ================= */
+
+        .highlights {
+            margin-top: -55px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .highlight {
+            background: white;
+            border-radius: 10px;
+            padding: 28px;
+            box-shadow: 0 8px 30px rgba(13, 75, 49, 0.12);
+            border: 1px solid var(--borda);
+        }
+
+        .highlight-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .highlight h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 7px;
+        }
+
+        .highlight p {
+            color: var(--texto-claro);
+            font-size: 14px;
+        }
+
+        /* ================= SEÇÕES ================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            color: var(--verde-escuro);
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--texto-claro);
+        }
+
+        /* ================= SOBRE ================= */
+
+        .about-section {
+            background: var(--cinza);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 390px;
+            border-radius: 13px;
+            background:
+                linear-gradient(rgba(23, 107, 69, 0.18), rgba(23, 107, 69, 0.18)),
+                url("img/empresa.jpg") center/cover no-repeat;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-content h2 {
+            color: var(--verde-escuro);
+            font-size: 38px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--texto-claro);
+            margin-bottom: 16px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--verde);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ================= SERVIÇOS ================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service {
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            padding: 28px;
+            background: white;
+            transition: 0.25s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(13, 75, 49, 0.10);
+            border-color: #a8cfb8;
+        }
+
+        .service-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 9px;
+            background: var(--verde-claro);
+            color: var(--verde);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .service h3 {
+            color: var(--verde-escuro);
+            margin: 16px 0 9px;
+        }
+
+        .service p {
+            color: var(--texto-claro);
+            font-size: 14px;
+        }
+
+        /* ================= DIFERENCIAIS ================= */
+
+        .differentials {
+            background: var(--verde-escuro);
+            color: white;
+        }
+
+        .differentials .section-title h2 {
+            color: white;
+        }
+
+        .differentials .section-title p {
+            color: #d5e9dd;
+        }
+
+        .differential-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .differential {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .differential-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .differential h3 {
+            margin-bottom: 8px;
+        }
+
+        .differential p {
+            color: #c8ddd1;
+            font-size: 14px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background:
+                linear-gradient(rgba(13, 75, 49, 0.92), rgba(23, 107, 69, 0.90)),
+                url("img/cta.jpg") center/cover no-repeat;
+
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 720px;
+            margin: 0 auto 28px;
+            color: #e0f0e6;
+        }
+
+        /* ================= CONTATO ================= */
+
+        .contact-section {
+            background: var(--cinza);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 11px;
+            padding: 32px;
+        }
+
+        .contact-card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 22px;
+            font-size: 24px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--verde-escuro);
+            margin-bottom: 3px;
+        }
+
+        .contact-item a {
+            color: var(--verde);
+            font-weight: bold;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #082b1d;
+            color: #c4d8cc;
+            padding: 30px 0;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer strong {
+            color: white;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 2000;
+            background: #25d366;
+            color: white;
+            padding: 14px 19px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .highlight-grid,
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .differential-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header {
+                min-height: 70px;
+            }
+
+            .logo img,
+            .logo-fallback {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .hero {
+                min-height: 540px;
+            }
+
+            .hero-content {
+                padding: 60px 0;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+
+            .highlights {
+                margin-top: 0;
+                padding-top: 25px;
+            }
+
+            .highlight-grid,
+            .services-grid,
+            .differential-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title h2,
+            .about-content h2 {
+                font-size: 30px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>GS Consultoria</h1>
+
+<header>
+    <div class="container header">
+
+        <a href="#inicio" class="logo">
+
+            <img
+                src="img/logo.png"
+                alt="GS Consultoria"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+            <div class="logo-fallback" style="display:none;">
+                GS
+            </div>
+
+            <div class="logo-text">
+                GS CONSULTORIA
+                <span>SAÚDE E SEGURANÇA DO TRABALHO</span>
+            </div>
+
+        </a>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#empresa">Empresa</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#diferenciais">Diferenciais</a>
+            <a href="#contato">Contato</a>
+
+            <a
+                class="nav-button"
+                href="https://wa.me/5521991204292"
+                target="_blank">
+                Fale Conosco
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                Consultoria especializada em SST
+            </div>
+
+            <h1>
+                Segurança para sua empresa.
+                <span>Proteção para seus trabalhadores.</span>
+            </h1>
+
+            <p>
+                Soluções completas em Saúde e Segurança do Trabalho,
+                com foco em prevenção, conformidade e melhoria das
+                condições de trabalho.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="button button-green"
+                    href="https://wa.me/5521991204292?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20de%20SST."
+                    target="_blank">
+                    Solicitar Orçamento
+                </a>
+
+                <a
+                    class="button button-outline"
+                    href="#servicos">
+                    Conheça nossos serviços
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DESTAQUES -->
+
+<section class="highlights">
+
+    <div class="container">
+
+        <div class="highlight-grid">
+
+            <div class="highlight">
+
+                <div class="highlight-icon">🛡️</div>
+
+                <h3>Prevenção</h3>
+
+                <p>
+                    Identificação e gerenciamento dos riscos
+                    ocupacionais presentes nas atividades.
+                </p>
+
+            </div>
+
+            <div class="highlight">
+
+                <div class="highlight-icon">📋</div>
+
+                <h3>Conformidade</h3>
+
+                <p>
+                    Apoio técnico para atendimento às Normas
+                    Regulamentadoras e requisitos aplicáveis.
+                </p>
+
+            </div>
+
+            <div class="highlight">
+
+                <div class="highlight-icon">👷</div>
+
+                <h3>Atendimento Técnico</h3>
+
+                <p>
+                    Soluções personalizadas de acordo com a
+                    realidade e necessidade de cada empresa.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOBRE -->
+
+<section class="about-section" id="empresa">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image"></div>
+
+            <div class="about-content">
+
+                <div class="tag" style="color: var(--verde);">
+                    Sobre a empresa
+                </div>
+
+                <h2>
+                    GS Consultoria em Saúde e Segurança do Trabalho
+                </h2>
+
+                <p>
+                    A <strong>GS Consultoria em Saúde e Segurança do
+                    Trabalho LTDA</strong> oferece serviços especializados
+                    para empresas que buscam melhorar a gestão de Saúde
+                    e Segurança do Trabalho.
+                </p>
+
+                <p>
+                    Atuamos com foco na prevenção de acidentes,
+                    identificação de perigos, avaliação de riscos,
+                    conformidade legal e melhoria contínua das
+                    condições de trabalho.
+                </p>
+
+                <ul class="check-list">
+
+                    <li>Atendimento técnico especializado</li>
+
+                    <li>Foco na prevenção de acidentes</li>
+
+                    <li>Gestão de riscos ocupacionais</li>
+
+                    <li>Documentação e avaliações técnicas</li>
+
+                    <li>Atendimento na Região Metropolitana do RJ</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVIÇOS -->
+
+<section id="servicos">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="tag" style="color: var(--verde);">
+                Nossas soluções
+            </div>
+
+            <h2>
+                Serviços em Saúde e Segurança do Trabalho
+            </h2>
+
+            <p>
+                Soluções técnicas desenvolvidas para apoiar sua empresa
+                na prevenção de riscos e no atendimento aos requisitos
+                de Segurança e Saúde no Trabalho.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+            <div class="service">
+
+                <div class="service-icon">PGR</div>
+
+                <h3>PGR e GRO</h3>
+
+                <p>
+                    Programa de Gerenciamento de Riscos, inventário
+                    de riscos e plano de ação.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">LT</div>
+
+                <h3>LTCAT</h3>
+
+                <p>
+                    Avaliação técnica das condições ambientais
+                    de trabalho para fins previdenciários.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">LT</div>
+
+                <h3>Laudos Técnicos</h3>
+
+                <p>
+                    Avaliações e laudos relacionados às condições
+                    de Segurança e Saúde do Trabalho.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">AE</div>
+
+                <h3>AET e AEP</h3>
+
+                <p>
+                    Avaliações ergonômicas para identificação
+                    de fatores de risco e oportunidades de melhoria.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">AR</div>
+
+                <h3>APR e Análise de Riscos</h3>
+
+                <p>
+                    Identificação de perigos, avaliação de riscos
+                    e definição de medidas de controle.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">NR</div>
+
+                <h3>Treinamentos de NRs</h3>
+
+                <p>
+                    Capacitações relacionadas às Normas Regulamentadoras
+                    e às necessidades das atividades.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">IS</div>
+
+                <h3>Inspeções de Segurança</h3>
+
+                <p>
+                    Inspeções para identificação de condições
+                    inseguras e oportunidades de melhoria.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">AS</div>
+
+                <h3>Assessoria em SST</h3>
+
+                <p>
+                    Suporte técnico para implantação e melhoria
+                    dos processos de Saúde e Segurança.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">CT</div>
+
+                <h3>Consultoria Corporativa</h3>
+
+                <p>
+                    Soluções personalizadas de acordo com o segmento,
+                    porte e necessidades da empresa.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIFERENCIAIS -->
+
+<section class="differentials" id="diferenciais">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="tag">
+                Nosso compromisso
+            </div>
+
+            <h2>
+                Por que escolher a GS Consultoria?
+            </h2>
+
+            <p>
+                Segurança do Trabalho precisa estar conectada à
+                realidade operacional da empresa.
+            </p>
+
+        </div>
+
+
+        <div class="differential-grid">
+
+            <div class="differential">
+
+                <div class="differential-icon">✓</div>
+
+                <h3>Prevenção</h3>
+
+                <p>
+                    Antecipação e controle dos riscos ocupacionais.
+                </p>
+
+            </div>
+
+
+            <div class="differential">
+
+                <div class="differential-icon">✓</div>
+
+                <h3>Atendimento</h3>
+
+                <p>
+                    Proximidade e atenção às necessidades do cliente.
+                </p>
+
+            </div>
+
+
+            <div class="differential">
+
+                <div class="differential-icon">✓</div>
+
+                <h3>Responsabilidade</h3>
+
+                <p>
+                    Compromisso com a qualidade dos serviços prestados.
+                </p>
+
+            </div>
+
+
+            <div class="differential">
+
+                <div class="differential-icon">✓</div>
+
+                <h3>Resultados</h3>
+
+                <p>
+                    Segurança aliada à eficiência e à melhoria contínua.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Sua empresa está preparada para os desafios de SST?
+        </h2>
+
+        <p>
+            Fale com a GS Consultoria e conheça as soluções
+            que podemos oferecer para sua empresa.
+        </p>
+
+        <a
+            class="button button-green"
+            href="https://wa.me/5521991204292?text=Olá!%20Gostaria%20de%20conhecer%20os%20serviços%20da%20GS%20Consultoria."
+            target="_blank">
+            Falar com a GS Consultoria
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CONTATO -->
+
+<section class="contact-section" id="contato">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="tag" style="color: var(--verde);">
+                Entre em contato
+            </div>
+
+            <h2>
+                Vamos conversar?
+            </h2>
+
+            <p>
+                Solicite uma proposta ou entre em contato para
+                esclarecer suas necessidades em Saúde e Segurança
+                do Trabalho.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <h3>
+                    GS Consultoria
+                </h3>
+
+                <div class="contact-item">
+
+                    <strong>WhatsApp</strong>
+
+                    <a
+                        href="https://wa.me/5521991204292"
+                        target="_blank">
+                        (21) 99120-4292
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>E-mail</strong>
+
+                    <a href="mailto:gscomercialsst@gmail.com">
+                        gscomercialsst@gmail.com
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Área de atendimento</strong>
+
+                    Região Metropolitana do Estado do Rio de Janeiro
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Serviços</strong>
+
+                    Consultoria, assessoria, laudos, avaliações,
+                    treinamentos e soluções em SST.
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>
+                    Solicite uma proposta
+                </h3>
+
+                <p style="color: var(--texto-claro); margin-bottom: 22px;">
+                    Clique no botão abaixo e fale diretamente
+                    conosco pelo WhatsApp.
+                </p>
+
+                <a
+                    class="button"
+                    style="background: var(--verde); color: white;"
+                    href="https://wa.me/5521991204292?text=Olá!%20Sou%20uma%20empresa%20e%20gostaria%20de%20solicitar%20uma%20proposta%20de%20SST."
+                    target="_blank">
+                    Solicitar proposta pelo WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container footer">
+
+        <div>
+            <strong>
+                GS CONSULTORIA EM SAÚDE E SEGURANÇA DO TRABALHO LTDA
+            </strong>
+
+            <br>
+
+            Saúde • Segurança • Prevenção
+        </div>
+
+        <div>
+            © 2026 — Todos os direitos reservados.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5521991204292"
+    target="_blank"
+    aria-label="Falar pelo WhatsApp">
+
+    WhatsApp
+
+</a>
+
 </body>
 </html>
+```
